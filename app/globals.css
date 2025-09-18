@@ -1,0 +1,256 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color palette for luxurious WolvarX Store branding */
+  --background: #fdf2f8; /* Soft light background */
+  --foreground: #1f2937; /* Dark text for readability */
+  --card: #ffffff; /* White cards for product display */
+  --card-foreground: #475569; /* Text color for cards */
+  --popover: #ffffff; /* Background for popovers */
+  --popover-foreground: #1f2937; /* Text color for popovers */
+  --primary: #be123c; /* Used for primary buttons and highlights */
+  --primary-foreground: #ffffff; /* Text color on primary buttons */
+  --secondary: #ec4899; /* Accent color for secondary actions */
+  --secondary-foreground: #ffffff; /* Text color on secondary buttons */
+  --muted: #f8fafc; /* Light background for muted elements */
+  --muted-foreground: #475569; /* Text color for muted elements */
+  --accent: #ec4899; /* Used for call-to-action elements */
+  --accent-foreground: #ffffff; /* Text color on accent buttons */
+  --destructive: #be123c; /* Color for error messages */
+  --destructive-foreground: #ffffff; /* Text color on destructive actions */
+  --border: #d1d5db; /* Light gray for borders */
+  --input: #ffffff; /* Background for input fields */
+  --ring: rgba(190, 18, 60, 0.5); /* Soft ring effect for focus states */
+  --chart-1: #6366f1; /* Chart color 1 */
+  --chart-2: #10b981; /* Chart color 2 */
+  --chart-3: #059669; /* Chart color 3 */
+  --chart-4: #be123c; /* Chart color 4 */
+  --chart-5: #ec4899; /* Chart color 5 */
+  --radius: 0.5rem; /* Rounded corners for cards and buttons */
+  --sidebar: #ffffff; /* Sidebar background */
+  --sidebar-foreground: #1f2937; /* Sidebar text color */
+  --sidebar-primary: #fdf2f8; /* Primary background for sidebar */
+  --sidebar-primary-foreground: #475569; /* Text color for sidebar items */
+  --sidebar-accent: #ec4899; /* Accent color for sidebar highlights */
+  --sidebar-accent-foreground: #ffffff; /* Text color for sidebar accents */
+  --sidebar-border: #d1d5db; /* Border color for sidebar */
+  --sidebar-ring: rgba(190, 18, 60, 0.5); /* Ring effect for sidebar focus */
+}
+
+.dark {
+  --background: #0f0f23;
+  --foreground: #ffffff;
+  --card: #1a1a2e;
+  --card-foreground: #ffffff;
+  --popover: #1a1a2e;
+  --popover-foreground: #ffffff;
+  --primary: #ec4899;
+  --primary-foreground: #ffffff;
+  --secondary: #be123c;
+  --secondary-foreground: #ffffff;
+  --muted: #16213e;
+  --muted-foreground: #94a3b8;
+  --accent: #ec4899;
+  --accent-foreground: #ffffff;
+  --destructive: #be123c;
+  --destructive-foreground: #ffffff;
+  --border: #374151;
+  --input: #1a1a2e;
+  --ring: rgba(236, 72, 153, 0.5);
+  --chart-1: #6366f1;
+  --chart-2: #10b981;
+  --chart-3: #059669;
+  --chart-4: #be123c;
+  --chart-5: #ec4899;
+  --sidebar: #0f0f23;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #1a1a2e;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ec4899;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #374151;
+  --sidebar-ring: rgba(236, 72, 153, 0.5);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Added custom animations for luxurious effects */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(190, 18, 60, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(190, 18, 60, 0.6);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #be123c, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.luxury-shadow {
+  box-shadow: 0 25px 50px -12px rgba(190, 18, 60, 0.25);
+}
+
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 32px 64px -12px rgba(190, 18, 60, 0.35);
+}
